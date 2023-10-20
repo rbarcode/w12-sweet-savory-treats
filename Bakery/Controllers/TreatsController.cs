@@ -20,12 +20,6 @@ namespace Bakery.Controllers
       _userManager = userManager;
     }
 
-    // [AllowAnonymous]
-    // public ActionResult Index()
-    // {
-    //   return View(_db.Treats.ToList());
-    // }
-
     [AllowAnonymous]
     public ActionResult Details(int id)
     {
@@ -53,7 +47,9 @@ namespace Bakery.Controllers
 
     public ActionResult AddFlavor(int id)
     {
-      Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      Treat thisTreat = _db.Treats
+                        .Include(treats => treats.JoinEntity)
+                        .FirstOrDefault(treat => treat.TreatId == id);
       ViewBag.Flavors = _db.Flavors.ToList();
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Type");
       return View(thisTreat);
