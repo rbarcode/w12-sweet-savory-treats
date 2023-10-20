@@ -20,7 +20,7 @@
     <li>@Html.ActionLink(treat.Type, "Details", "Treats", new { id = @treat.TreatId })</li>
   }
 </ul>
-<p>@Html.ActionLink("Treats Home Page", "Index", "Treats")</p>
+<p>@Html.ActionLink("Add new treat", "Create", "Treats")</p>
 
 <h4>Flavors</h4>
 @if (Model["flavors"].Length == 0)
@@ -33,5 +33,6 @@
     <li>@Html.ActionLink(@flavor.Type, "Details", "Flavors", new { id = @flavor.FlavorId })</li>
   }
 </ul>
-<p>@Html.ActionLink("Flavors Home Page", "Index", "Flavors")</p>
+<p>@Html.ActionLink("Add new flavor", "Create", "Flavors")</p>
+<br>
 <p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
