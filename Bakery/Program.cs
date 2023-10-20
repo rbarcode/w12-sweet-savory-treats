@@ -28,17 +28,6 @@ namespace Bakery
                 .AddEntityFrameworkStores<BakeryContext>()
                 .AddDefaultTokenProviders();
 
-      //DELETE BEFORE DEPLOYMENT
-      builder.Services.Configure<IdentityOptions>(options =>
-      {
-        options.Password.RequireDigit = false;
-        options.Password.RequireLowercase = false;
-        options.Password.RequireNonAlphanumeric = false;
-        options.Password.RequireUppercase = false;
-        options.Password.RequiredLength = 0;
-        options.Password.RequiredUniqueChars = 0;
-      });
-
       WebApplication app = builder.Build();
 
       app.UseHttpsRedirection();
