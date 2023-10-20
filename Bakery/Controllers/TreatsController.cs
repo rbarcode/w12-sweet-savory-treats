@@ -3,9 +3,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
-using System.Security.Claims;
-using System.Collections.Generic;
 using System.Linq;
 using Bakery.Models;
 
@@ -23,12 +20,13 @@ namespace Bakery.Controllers
       _userManager = userManager;
     }
 
-    [AllowAnonymous]
-    public ActionResult Index()
-    {
-      return View(_db.Treats.ToList());
-    }
+    // [AllowAnonymous]
+    // public ActionResult Index()
+    // {
+    //   return View(_db.Treats.ToList());
+    // }
 
+    [AllowAnonymous]
     public ActionResult Details(int id)
     {
       Treat thisTreat = _db.Treats
