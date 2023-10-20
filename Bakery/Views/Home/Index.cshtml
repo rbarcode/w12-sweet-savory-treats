@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models;
+
+<h1>Welcome to Pierre's Sweet and Savory Treats!</h1>
+<hr />
+
+<h3>Browse Our Selection of Flavored Treats that Users Have Suggested!</h3>
+
+<h4>Treats</h4>
+@if (Model["treats"].Length == 0)
+{
+  <p>No treats have been added.</p>
+}
+<ul>
+  @foreach (Treat treat in Model["treats"])
+  {
+    <li>@Html.ActionLink(treat.Type, "Details", "Treats", new { id = @treat.TreatId })</li>
+  }
+</ul>
+<p>@Html.ActionLink("Treats Home Page", "Index", "Treats")</p>
+
+<h4>Flavors</h4>
+@if (Model["flavors"].Length == 0)
+{
+  <p>No flavors have been added.</p>
+}
+<ul>
+  @foreach (Flavor flavor in Model["flavors"])
+  {
+    <li>@Html.ActionLink(@flavor.Type, "Details", "Flavors", new { id = @flavor.FlavorId })</li>
+  }
+</ul>
+<p>@Html.ActionLink("Flavors Home Page", "Index", "Flavors")</p>
+<p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
