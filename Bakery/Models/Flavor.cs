@@ -9,7 +9,6 @@ namespace Bakery.Models
     [Required]
     public string Type { get; set; }
     public List<FlavorTreat> JoinEntity { get; }
-    public ApplicationUser User { get; }
     public readonly string[] availableTypes = { "Bitter", "Salty", "Savory", "Sour", "Sweet"};
   }
 }
