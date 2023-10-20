@@ -7,7 +7,7 @@
 
 <h2>Add a flavor to this @Html.DisplayFor(model => model.Type)</h2>
 
-@if (@ViewBag.FlavorId.Count == 0)
+@if (@ViewBag.Flavors.Count == 0)
 {
   <p>You must add at least one flavor to the system first.</p>
   <p>@Html.ActionLink("Add Flavor", "Create", "Flavors")</p>
